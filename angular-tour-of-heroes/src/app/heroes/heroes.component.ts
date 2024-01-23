@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
-import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-heroes',
@@ -10,7 +9,6 @@ import { MessageService } from '../message.service';
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent implements OnInit {
-
   heroes: Hero[] = [];
 
   constructor(private heroService: HeroService) { }
@@ -33,11 +31,9 @@ export class HeroesComponent implements OnInit {
       });
   }
 
-  /** POST: add a new hero to the server */
-  
-
   delete(hero: Hero): void {
     this.heroes = this.heroes.filter(h => h !== hero);
     this.heroService.deleteHero(hero.id).subscribe();
   }
+
 }
